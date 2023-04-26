@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DurableFunctionTest.Activities
 {
-    public class Activity1
+    public class SendApprovalActivity
     {
-        [FunctionName(nameof(Activity1.SendApproval))]
+        [FunctionName(nameof(SendApprovalActivity.SendApproval))]
         public Task SendApproval([ActivityTrigger]ApprovalRequest approvalRequest, ILogger logger)
         {
             return Task.CompletedTask;

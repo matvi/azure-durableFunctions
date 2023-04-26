@@ -1,6 +1,7 @@
 ﻿
 using DurableFunctionTest.Activities;
 using DurableFunctionTest.Constants;
+using DurableFunctionTest.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Extensions.Logging;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace DurableFunctionTest
 {
-    public class ManualApproval
+    public class ManualApprovalFunction
     {
         const string ApprovalEvent = "ApprovalEvent";
         [FunctionName(nameof(ManuallyApproveRecognition))]
@@ -38,7 +39,7 @@ namespace DurableFunctionTest
 
             //calling the slack api 
             logger.LogError("************* Calling Slack API to send information to human");
-            await context.CallActivityAsync(nameof(Activity1.SendApproval), approvalRequest);
+            await context.CallActivityAsync(nameof(SendApprovalActivity.SendApproval), approvalRequest);
 
             var approvalResponse = context.WaitForExternalEvent<bool>(CustomConstants.ApprovalEvent);
 

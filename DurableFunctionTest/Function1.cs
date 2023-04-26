@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using System.Net.Http;
+using DurableFunctionTest.Models;
 
 namespace DurableFunctionTest
 {
@@ -32,7 +33,7 @@ namespace DurableFunctionTest
                 //send plate for human recognition
 
                 //calls the durable function
-                string instanceId = await starter.StartNewAsync(nameof(ManualApproval.ManuallyApproveRecognition),speedViolation);
+                string instanceId = await starter.StartNewAsync(nameof(ManualApprovalFunction.ManuallyApproveRecognition),speedViolation);
                 //returns status object
                 return starter.CreateCheckStatusResponse(req, instanceId);
             }

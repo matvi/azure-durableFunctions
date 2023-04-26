@@ -5,7 +5,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DurableFunctionTest
+namespace DurableFunctionTest.Models
 {
     public class SpeedViolation
     {
