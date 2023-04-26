@@ -13,11 +13,11 @@ using DurableFunctionTest.Models;
 
 namespace DurableFunctionTest
 {
-    public class Function1
+    public class SpeedViolationFunction
     {
         private const double speedThrehold = 0.8;
 
-        [FunctionName("Function1")]
+        [FunctionName("SpeedViolationFunction")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             [DurableClient]IDurableOrchestrationClient starter,
